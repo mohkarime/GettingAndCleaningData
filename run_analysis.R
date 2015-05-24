@@ -50,7 +50,6 @@ names(meanstdset) <- gsub("BodyBody", "Body", names(meanstdset))
 ##compute summary statistics for each, and return the result in a convenient form.
 ##Order the tidyset and write the table into "tidydata.txt"
 
-library(plyr)
 tidyset <- aggregate(. ~Subject + Activity, meanstdset, mean)
 tidyset <- tidyset[order(tidyset$Subject, tidyset$Activity), ]
 write.table(tidyset, file = "tidydata.txt", row.name=FALSE)
